@@ -1,0 +1,417 @@
+/* Animações e melhorias visuais para o Mapa de Carreira */
+
+/* ============= TIMELINE VISUAL IMPROVEMENTS ============= */
+
+.resume-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+/* Linha vertical do timeline */
+.resume-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #89CFF0, #00BFFF);
+  border-radius: 2px;
+}
+
+/* Bolinha do timeline */
+.resume-timeline-item::before {
+	content: "";
+	position: absolute;
+	left: -1.85rem;
+	top: 0.5rem;
+	width: 1.2rem;
+	height: 1.2rem;
+	border-radius: 50%;
+	background: #fff;
+	border: 4px solid #89CFF0;
+	box-shadow: 0 2px 8px rgba(137, 207, 240, 0.3);
+	transition: all 0.3s ease;
+	opacity: 1;
+	transform: scale(1);
+}
+
+/* Animação: bolinhas aparecem ao descer (scroll) */
+@keyframes slideInBall {
+	from {
+		opacity: 0;
+		transform: scale(0.3);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes slideOutBall {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.3);
+	}
+}
+
+@keyframes slideInContent {
+	from {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideOutContent {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+}
+
+/* Quando a bolinha entra na viewport */
+.resume-timeline-item.in-view::before {
+	animation: slideInBall 0.6s ease-out forwards;
+}
+
+/* Quando o conteúdo do item entra na viewport */
+.resume-timeline-item.in-view .resume-timeline-item-header,
+.resume-timeline-item.in-view .resume-timeline-item-desc {
+	animation: slideInContent 0.6s ease-out forwards;
+	animation-delay: 0.15s;
+}
+
+/* ============= ENHANCED CAREER ITEM STYLING ============= */
+
+.resume-timeline-item {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.resume-timeline-item:hover {
+  transform: translateX(10px);
+}
+
+.resume-timeline-item-header {
+	opacity: 1;
+	transform: translateX(0);
+	transition: all 0.6s ease-out;
+}
+
+.resume-timeline-item-desc {
+	opacity: 1;
+	transform: translateX(0);
+	transition: all 0.6s ease-out;
+}
+
+.resume-timeline-item-header h3 {
+  color: #89CFF0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.resume-timeline-item:hover .resume-timeline-item-header h3 {
+  color: #00BFFF;
+  text-shadow: 0 2px 4px rgba(137, 207, 240, 0.1);
+}
+
+.resume-timeline-item-desc {
+  border-left: 3px solid #89CFF0;
+  padding-left: 1.5rem;
+  padding-top: 0.5rem;
+  margin-top: 0.8rem;
+  background: linear-gradient(to right, rgba(137, 207, 240, 0.02), transparent);
+  border-radius: 0 4px 4px 0;
+  transition: all 0.3s ease;
+}
+
+.resume-timeline-item:hover .resume-timeline-item-desc {
+  border-left-color: #00BFFF;
+  padding-left: 2rem;
+  background: linear-gradient(to right, rgba(137, 207, 240, 0.05), transparent);
+}
+
+.resume-timeline-item-desc-heading {
+  color: #00BFFF;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.resume-timeline-item-desc ul {
+  margin-bottom: 0.8rem;
+}
+
+.resume-timeline-item-desc li {
+  margin-bottom: 0.4rem;
+  padding-left: 0.5rem;
+  color: #495057;
+  transition: all 0.2s ease;
+  list-style-position: inside;
+}
+
+.resume-timeline-item-desc li:before {
+  content: "→ ";
+  color: #89CFF0;
+  font-weight: bold;
+  margin-right: 0.3rem;
+}
+
+.resume-timeline-item:hover .resume-timeline-item-desc li {
+  color: #212529;
+  transform: translateX(5px);
+}
+
+/* ============= BADGE ANIMATIONS ============= */
+
+.badge {
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin: 0.25rem;
+  animation: fadeInBadges 0.5s ease-out backwards;
+}
+
+@keyframes fadeInBadges {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes fadeOutBadges {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+}
+
+.resume-timeline-item.in-view .badge {
+	animation: fadeInBadges 0.5s ease-out backwards;
+}
+
+.badge:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.badge:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.badge:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.badge:nth-child(4) {
+  animation-delay: 0.7s;
+}
+.badge:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.badge:nth-child(6) {
+  animation-delay: 0.9s;
+}
+
+.badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ============= PROGRESS BARS ANIMATION ============= */
+
+.resume-progress {
+  background-color: #f0f0f0;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+	height: 100%;
+	background: linear-gradient(90deg, #89CFF0, #00BFFF);
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+@keyframes fillProgressBar {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+.resume-timeline-item.in-view .progress-bar {
+	animation: fillProgressBar 1.2s ease-out forwards;
+}
+
+.resume-timeline-item:hover .progress-bar {
+	box-shadow: 0 0 8px rgba(137, 207, 240, 0.4);
+}
+
+/* ============= SKILL ITEMS ============= */
+
+.resume-skill-item {
+  margin-bottom: 2rem;
+  padding: 1.2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(137, 207, 240, 0.05),
+    rgba(0, 191, 255, 0.05)
+  );
+  border-radius: 8px;
+  border-left: 4px solid #89CFF0;
+  transition: all 0.3s ease;
+}
+
+.resume-skill-item:hover {
+  border-left-color: #00BFFF;
+  background: linear-gradient(
+    135deg,
+    rgba(137, 207, 240, 0.1),
+    rgba(0, 191, 255, 0.1)
+  );
+  box-shadow: 0 4px 12px rgba(137, 207, 240, 0.15);
+  transform: translateY(-3px);
+}
+
+.resume-skills-cat {
+  color: #89CFF0;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.resume-skills-cat::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, #89CFF0, #00BFFF);
+  border-radius: 1px;
+}
+
+/* ============= SECTION STYLING ============= */
+
+.resume-section {
+  animation: fadeInSection 0.8s ease-out;
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resume-section-title {
+  color: #89CFF0;
+  position: relative;
+  padding-bottom: 1rem;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.resume-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 4rem;
+  height: 3px;
+  background: linear-gradient(90deg, #89CFF0, #00BFFF);
+  border-radius: 2px;
+}
+
+/* ============= SMOOTH SCROLL BEHAVIOR ============= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============= RESPONSIVE ADJUSTMENTS ============= */
+
+@media (max-width: 768px) {
+  .resume-timeline {
+    padding-left: 1.5rem;
+  }
+
+  .resume-timeline::before {
+    left: 0.35rem;
+    width: 2px;
+  }
+
+  .resume-timeline-item::before {
+    left: -1.65rem;
+    width: 1rem;
+    height: 1rem;
+    border-width: 3px;
+  }
+
+  .resume-timeline-item:hover {
+    transform: translateX(5px);
+  }
+
+  .resume-skill-item {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .resume-timeline-item-header h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .resume-timeline {
+    padding-left: 1.2rem;
+  }
+
+  .resume-timeline-item::before {
+    left: -1.5rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-width: 2.5px;
+  }
+
+  .resume-timeline-item-header h3 {
+    font-size: 1rem;
+  }
+
+  .badge {
+    margin: 0.15rem;
+    font-size: 0.75rem;
+  }
+}

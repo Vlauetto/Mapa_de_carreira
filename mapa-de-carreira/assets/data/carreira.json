@@ -1,0 +1,160 @@
+{
+  "seo": {
+    "title": "Vitória Laurenzano Maschietto | Mapa de Carreira em Tecnologia",
+    "description": "Mapa de carreira de Vitória Laurenzano Maschietto, com objetivos profissionais, trilha de aprendizagem, habilidades, idiomas e contatos.",
+    "author": "Vitória Laurenzano Maschietto",
+    "canonicalUrl": "https://exemplo.com/mapa-de-carreira/"
+  },
+  "profile": {
+    "name": "Vitória Laurenzano Maschietto",
+    "headline": "Desenvolvedora Full Stack",
+    "photo": "assets/images/profile.jpg",
+    "photoAlt": "Foto profissional de Vitória Laurenzano Maschietto",
+    "summary": "Sou formada no Ensino Médio com curso técnico em Análise e Desenvolvimento de Sistemas, onde desenvolvi uma base sólida em programação, lógica computacional e desenvolvimento web. Atualmente, participo do programa PROA, aprofundando meus conhecimentos em desenvolvimento front-end e back-end. Como desenvolvedora em formação, busco constantemente novos aprendizados e desafios que contribuam para meu crescimento profissional. Tenho grande interesse por tecnologia, inovação e pela criação de soluções que possam gerar impacto positivo na vida das pessoas. Meu objetivo é continuar evoluindo na área de desenvolvimento de software.",
+    "cvUrl": "https://docs.google.com/document/d/1YzwOdbmewOn3NYIfPrL1XGw8LUplhQn2/edit?usp=sharing&ouid=115127146557120108574&rtpof=true&sd=true"
+  },
+  "contacts": [
+    {
+      "label": "vlauetto@gmail.com",
+      "url": "mailto:vlauetto@gmail.com"
+    },
+    {
+      "label": "linkedin.com/in/vitoriamaschietto",
+      "url": "https://linkedin.com/in/vit%C3%B3ria-laurenzano-maschietto-65835a321"
+    },
+    {
+      "label": "github.com/Vlauetto",
+      "url": "https://github.com/Vlauetto"
+    }
+  ],
+  "careerSteps": [
+    {
+"title": "Desenvolvedora Full-Stack Júnior",
+"description": "Atualmente estou construindo minha experiência profissional desenvolvendo aplicações web, atuando tanto no front-end quanto no back-end. Meu foco é consolidar os fundamentos da programação, compreender o ciclo completo de desenvolvimento de software e adquirir experiência prática por meio de projetos e desafios reais.",
+"softSkills": [
+"Aprendizado contínuo",
+"Organização",
+"Trabalho em equipe"
+],
+"roadmap": [
+"HTML e CSS",
+"JavaScript",
+"Java",
+"Git e GitHub",
+"MySQL",
+"APIs REST"
+]
+},
+{
+"title": "Desenvolvedora Full-Stack Pleno",
+"description": "Aprofundar meus conhecimentos no desenvolvimento de aplicações completas, ganhando autonomia para implementar funcionalidades, integrar sistemas e participar de decisões técnicas relacionadas ao produto e à arquitetura.",
+"softSkills": [
+"Autonomia",
+"Resolução de problemas",
+"Comunicação técnica"
+],
+"roadmap": [
+"React",
+"Node.js",
+"Spring Boot",
+"Modelagem de Banco de Dados",
+"Testes Automatizados",
+"Docker"
+]
+},
+{
+"title": "Desenvolvedora Back-End Júnior",
+"description": "Iniciar minha especialização em back-end, focando no desenvolvimento de APIs, regras de negócio, integração de sistemas e gerenciamento de dados, criando aplicações mais robustas e escaláveis.",
+"softSkills": [
+"Pensamento analítico",
+"Curiosidade técnica",
+"Colaboração"
+],
+"roadmap": [
+"Spring Boot Avançado",
+"APIs RESTful",
+"JWT e Autenticação",
+"Banco de Dados Relacional",
+"Docker",
+"Versionamento de APIs"
+]
+},
+{
+"title": "Desenvolvedora Back-End Pleno",
+"description": "Atuar com autonomia no desenvolvimento de sistemas back-end, projetando soluções escaláveis, seguras e de alta performance para atender às necessidades do negócio.",
+"softSkills": [
+"Responsabilidade técnica",
+"Tomada de decisão",
+"Visão de produto"
+],
+"roadmap": [
+"Microsserviços",
+"Mensageria",
+"Cache",
+"Testes de Integração",
+"Cloud Computing",
+"CI/CD"
+]
+},
+{
+"title": "Desenvolvedora de Software Sênior",
+"description": "Ser referência técnica no desenvolvimento de software, contribuindo para decisões arquiteturais, qualidade dos sistemas e evolução tecnológica dos projetos, criando soluções de alto impacto e valor para os usuários.",
+"softSkills": [
+"Liderança técnica",
+"Mentoria",
+"Visão estratégica"
+],
+"roadmap": [
+"Arquitetura de Software",
+"System Design",
+"Cloud Avançada",
+"Segurança de Aplicações",
+"Escalabilidade",
+"Arquiteturas Distribuídas"
+]
+}
+
+  ],
+  "skillGroups": [
+    {
+      "title": "Frontend",
+      "skills": [
+        {
+          "name": "HTML, CSS e JavaScript",
+          "level": 80
+        },
+        {
+          "name": "React",
+          "level": 75
+        }
+      ]
+    },
+    {
+      "title": "Backend e dados",
+      "skills": [
+        {
+          "name": "Node.js e APIs",
+          "level": 60
+        },
+        {
+          "name": "SQL",
+          "level": 70
+        },
+        {
+          "name": "Java e Spring Boot",
+          "level": 65
+        }
+      ]
+    }
+  ],
+  "otherSkills": [
+    "Git e GitHub",
+    "Comunicacao",
+    "Documentacao",
+    "Figma",
+    "Gestão de projetos",
+    "Liderança",
+    "Scrum",
+    "Microsoft PowerPoint"
+  ]
+}

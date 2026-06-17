@@ -1,0 +1,199 @@
+/*
+	Estilo "mar com ondas".
+
+	O que este arquivo faz:
+	1) Troca o fundo vinho/azul solido do cabecalho por um gradiente
+	   que lembra o mar (azul profundo no topo, turquesa mais claro embaixo).
+	2) Adiciona duas camadas de onda em SVG na base do cabecalho, que se
+	   movem horizontalmente em loop (efeito de "mar se movendo").
+	3) Define as classes usadas pelo scroll-animations.js para revelar
+	   elementos (fade + slide) conforme o usuario rola a pagina.
+*/
+
+/* ---------- 1. Fundo do cabecalho em tons de mar ---------- */
+
+/*
+	O cabecalho tem duas camadas: um container externo (que ocupa a largura
+	toda da tela) e o "cartao" interno (.resume-wrapper-inner, com largura
+	maxima e centralizado). O tema original pintava o container externo de
+	vinho; se so pintarmos o cartao interno, o vinho continua visivel nas
+	laterais. Por isso aplicamos o gradiente de mar nos dois.
+*/
+.resume-header .text-center.position-relative,
+.resume-header .resume-wrapper-inner {
+	background: linear-gradient(160deg, #04253e 0%, #0a4a73 35%, #157da3 65%, #2fb6c4 100%) !important;
+}
+
+.resume-header .resume-wrapper-inner {
+	position: relative;
+	overflow: hidden;
+	/* extra padding-bottom para a onda nao cobrir o conteudo do header */
+	padding-bottom: -10px;
+}
+
+/* Reforco: qualquer elemento com a classe utilitaria bg-primary dentro do
+   cabecalho tambem recebe o gradiente, cobrindo o caso de o tema aplicar a
+   cor vinho/verde original atraves dessa classe. */
+.resume-header .bg-primary {
+	background: linear-gradient(160deg, #04253e 0%, #0a4a73 35%, #157da3 65%, #2fb6c4 100%) !important;
+}
+
+/*
+	A onda fica "atras" do conteudo (foto + nome + links) usando z-index.
+	Para o z-index funcionar aqui, a propria linha com o conteudo precisa
+	ter position relative e um z-index maior que o da onda - sem isso, o
+	navegador pode empilhar a onda por cima do texto em algumas larguras
+	de tela, tampando-o.
+*/
+.resume-header .resume-wrapper-inner > .row {
+	position: relative;
+	z-index: 2;
+}
+
+/* ---------- 2. Camada de ondas ---------- */
+.ocean-waves {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	line-height: 0;
+	pointer-events: none; /* nao bloqueia cliques nos links do header */
+	z-index: 1;
+	overflow: hidden;
+}
+
+.ocean-waves svg {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 200%; /* o dobro da largura: permite o loop continuo */
+	height: 100%;
+}
+
+/* Onda de tras: mais lenta e mais transparente (sensacao de profundidade) */
+.ocean-waves .wave-back {
+	animation: wave-scroll 18s linear infinite;
+	opacity: 0.5;
+}
+
+/* Onda da frente: mais rapida e mais opaca */
+.ocean-waves .wave-front {
+	animation: wave-scroll 10s linear infinite reverse;
+	opacity: 0.9;
+}
+
+@keyframes wave-scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		/* anda exatamente a largura de uma "copia" do SVG, criando o loop */
+		transform: translateX(-50%);
+	}
+}
+
+/* Em telas pequenas a onda fica mais discreta para nao competir com a foto */
+@media (max-width: 767.98px) {
+	.ocean-waves {
+		height: 30px;
+	}
+
+	.resume-header .resume-wrapper-inner {
+		padding-bottom: 40px;
+	}
+}
+
+/* Respeita quem prefere menos movimento na tela */
+@media (prefers-reduced-motion: reduce) {
+	.ocean-waves .wave-back,
+	.ocean-waves .wave-front {
+		animation: none;
+	}
+}
+
+/* ---------- 3. Subtitulos internos (soft skills, roadmap, categorias de skills) ----------
+   Esses textos (ex: "SOFT SKILLS EXIGIDAS PARA ESSA ETAPA", "ROADMAP DE
+   APRENDIZADO", "FRONTEND", "BACKEND E DADOS", "OUTRAS COMPETENCIAS") vinham
+   em um azul claro. Aqui trocamos para o mesmo azul escuro usado nos titulos
+   principais das secoes (#0a4a73), mantendo a hierarquia visual mas com mais
+   contraste e consistencia com o resto da pagina. */
+.resume-timeline-item-desc-heading,
+.resume-skills-cat {
+	color: #0a4a73 !important;
+}
+
+/* ---------- 4. Animacoes ao rolar a pagina ---------- */
+
+/*
+	Estado inicial: elemento comeca invisivel e levemente deslocado.
+	A classe "is-visible" e adicionada via JavaScript (IntersectionObserver)
+	quando o elemento entra na area visivel da tela.
+*/
+/* ---------- 4. Animacoes ao rolar a pagina ---------- */
+/* ---------- 4. Animacoes ao rolar a pagina ---------- */
+
+.scroll-fade,
+.scroll-fade-left,
+.scroll-fade-right {
+	opacity: 0;
+	will-change: transform, opacity;
+	transition:
+		opacity 0.75s ease,
+		transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Entrada de baixo */
+.scroll-fade {
+	transform: translateY(35px);
+}
+
+/* Entrada da esquerda */
+.scroll-fade-left {
+	transform: translateX(-40px);
+}
+
+/* Entrada da direita */
+.scroll-fade-right {
+	transform: translateX(40px);
+}
+
+/* Estado visível */
+.is-visible {
+	opacity: 1;
+	transform: translate(0, 0);
+}
+
+/* Delays para efeito cascata */
+.delay-1 {
+	transition-delay: 0.08s;
+}
+
+.delay-2 {
+	transition-delay: 0.16s;
+}
+
+.delay-3 {
+	transition-delay: 0.24s;
+}
+
+.delay-4 {
+	transition-delay: 0.32s;
+}
+
+.delay-5 {
+	transition-delay: 0.40s;
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+	.scroll-fade,
+	.scroll-fade-left,
+	.scroll-fade-right {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
