@@ -197,3 +197,45 @@
 	}
 }
 
+/* Força o gradiente em todo o cabeçalho */
+.resume-header,
+.resume-header .resume-wrapper,
+.resume-header .resume-wrapper-inner,
+.resume-header .bg-primary,
+.resume-header .text-center.position-relative {
+	background: linear-gradient(
+		160deg,
+		#04253e 0%,
+		#0a4a73 35%,
+		#157da3 65%,
+		#2fb6c4 100%
+	) !important;
+}
+
+.resume-header img {
+    border-radius: 50% !important;
+    aspect-ratio: 1/1;
+    object-fit: cover !important;
+
+    border: 3px solid #ffffff !important;
+
+  
+    box-shadow:
+        0 0 0 2px rgba(21,125,163,.8),
+        0 3px 12px rgba(0,0,0,.12);
+}
+/* Corrige a foto no celular */
+@media (max-width: 768px) {
+
+    .resume-header img {
+        width: 140px !important;
+        height: 140px !important;
+
+        border-radius: 50% !important;
+        object-fit: cover !important;
+
+        display: block;
+        margin: 0 auto;
+    }
+
+}

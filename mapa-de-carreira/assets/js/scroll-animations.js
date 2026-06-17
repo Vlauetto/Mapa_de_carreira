@@ -134,4 +134,4 @@ if (document.readyState === "loading") {
 
 }
 
-})();
+});
